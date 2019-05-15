@@ -6,17 +6,19 @@ export class ShoppingList {
     // your code here
     @observable list = [];
     @observable length;
-    checkItem = () => {
-        // your code here
+    @action checkItem = (argName) => {
+        let item = this.list.find(i => i.name === argName)
+        item.completed = !item.completed
     }
-    addItem = () => {
-        // your code here
+    @action addItem = (argItem) => {
+        const itemToPush = new Item(argItem)
+        this.list.push(itemToPush)
     }
     editItem = () => {
         // your code here
     }
     deleteItem = () => {
         // your code here
-    } 
+    }
 }
 
