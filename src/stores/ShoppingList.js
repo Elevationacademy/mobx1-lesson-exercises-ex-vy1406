@@ -14,11 +14,13 @@ export class ShoppingList {
         const itemToPush = new Item(argItem)
         this.list.push(itemToPush)
     }
-    editItem = () => {
-        // your code here
+    @action editItem = (argName, location) => {
+        let item = this.list.find(i => i.name === argName)
+        item.location = location
     }
-    deleteItem = () => {
-        // your code here
+    @action deleteItem = (argItem) => {
+        const list = this.list.filter(item => item !== argItem)
+        this.list = list
     }
 }
 
